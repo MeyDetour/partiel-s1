@@ -100,7 +100,12 @@ function renderProducts() {
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" onclick="clearAll()" href="#">Clear ALl</a>
                         </li>
-        
+                          <li class="nav-item">
+                           <input onchange="changePdp(this)" type="file" name="imagepdp" id="imagepdp" class="inputPDP">
+                           <label for="imagepdp">
+                               <img src="${getImagePdp()}" alt="photoDeProfil" class="photoDeProfil">
+                            </label>
+                         </li>
                     </ul>
                   
                 </div>
@@ -115,6 +120,10 @@ function renderProducts() {
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Description</label>
          <input type="text" clas="form-control" name="productDesc" class="form-control" id="productDesc" placeholder="Description of product.." >
+        </div>
+            <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Image du produit</label>
+            <input type="file" clas="form-control" name="productImg" class="form-control" id="productImg"  >
         </div>
         <button class="btn btn-primary productButton">Create</button>
 
@@ -136,11 +145,13 @@ function renderProducts() {
 function renderProduct(product) {
     let productDesign = `
 <div class="card" style="width: 18rem;">
-      <img src="image/defaultPorduct.png" class="card-img-top" alt="...">
+      <img src="${getImageProduct(product.picture)}" class="card-img-top" alt="...">
       <div class="card-body">
             <h5 class="card-title">${product.name}</h5>
             <p class="card-text">${product.description}</p>
             <a href="#" class="btn btn-primary productChangeStatut" id="${product.id}">Change statut !</a>
+            <input type="file" onchange="changerImgProduct(this)" class="btn btn-primary productChangeImage" id="${product.id}">Changez l'image !</input>
+          <button class="btn btn-primary" onchange="renderModifyForm(this)" id="${product.id}">Edit</button>
             <i class="bi bi-trash3" id="${product.id}"></i>
       </div>
 </div>
@@ -148,6 +159,13 @@ function renderProduct(product) {
 
     return productDesign
 
+}
+
+function renderModifyForm(product){
+    id = product.id
+    document.querySelector('#productName')
+    document.querySelector('#productDesc')
+    document.querySelector('#productImg')
 }
 
 function addEvents() {
@@ -159,13 +177,27 @@ function addEvents() {
         })
     })
 
-    document.querySelectorAll('.productChangeStatut').forEach((product)=>{
+    document.querySelectorAll('.productChangeStatut').forEach((product) => {
 
-       product.addEventListener('click',()=>{
-           changeStatut(product.id)
-       })
+        product.addEventListener('click', () => {
+            changeStatut(product.id)
+        })
 
     })
+}
+
+function getImageProduct(picture) {
+    if (!picture) {
+        return 'image/defaultPorduct.png'
+    }
+return picture
+}
+
+function getImagePdp() {
+    if (user.avatar) {
+        return user.avatar
+    }
+    return 'image/defaultImg.png'
 }
 
 //=========FETCH========//
@@ -279,7 +311,7 @@ async function deleteProduct(id) {
         })
 }
 
-async function clearAll(){
+async function clearAll() {
     const param = {
         method: 'DELETE',
         headers: {
@@ -291,12 +323,12 @@ async function clearAll(){
         .then(response => response.json())
         .then(data => {
             console.log(data)
-    run()
+            run()
 
         })
 }
 
-async function changeStatut(id){
+async function changeStatut(id) {
     const param = {
         method: 'PATCH',
         headers: {
@@ -304,11 +336,59 @@ async function changeStatut(id){
             'Authorization': `bearer ${token}`
         },
     }
-    await fetch(`${baseUrl}mylist/switchstatus/${id}`,param)
+    await fetch(`${baseUrl}mylist/switchstatus/${id}`, param)
         .then(response => response.json())
         .then(data => {
             console.log(data)
-         run()
+            run()
         })
+
+}
+
+async function changePdp(file) {
+
+    const formData = new FormData()
+    formData.append('profilepic', file.files[0])
+
+    const param =
+        {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            },
+            body: formData,
+        }
+
+
+    await fetch(`${baseUrl}profilepicture`, param).then(response => response.json())
+        .then(data => {
+            run()
+        })
+
+}
+
+async function changerImgProduct(image) {
+    console.log(image)
+    const formData = new FormData()
+    formData.append('itempic', image.files[0])
+
+    const param =
+        {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            },
+            body: formData,
+        }
+
+
+    await fetch(`${baseUrl}mylist/addpicturetoitem/${image.id}`, param).then(response => response.json())
+        .then(data => {
+            console.log(data)
+            run()
+        })
+}
+
+async function modify(product){
 
 }

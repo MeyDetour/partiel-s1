@@ -10,3 +10,17 @@
 .contenu {
     color: var(--simplet)
 }
+.navbarSupportedContent{
+    position: relative;}
+
+
+.inputPDP{
+    display: none;
+}
+.photoDeProfil{
+    width: auto;
+    height: 80%;
+    position: absolute;
+    right: 2%;
+    top: 13%;
+}
