@@ -7,20 +7,243 @@
     --dash: #392e2c;
 }
 
-.contenu {
-    color: var(--simplet)
+html {
+    height: 100%;
 }
-.navbarSupportedContent{
-    position: relative;}
+
+.centered {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    font-family: Arial;
+
+    height: 100%;
+    margin: 0;
+overflow: hidden;
+    background-color: #EACCD8;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background: linear-gradient(293deg, #EACCD8 0%, #FFF 100.53%);
+}
+
+.contenu {
+    color: var(--simplet);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+}
+
+.navbar {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100vw;
+    padding: 20px 50px;
+}
+.navbar-nav{
+    font-size: 1.5em;
+}
+.navbarSupportedContent {
+    position: relative;
+}
 
 
-.inputPDP{
+.inputPDP {
     display: none;
 }
-.photoDeProfil{
+
+.photoDeProfil {
     width: auto;
-    height: 80%;
+    height: 48px;
+
+}
+
+
+.createImagePreview {
+    margin: 2em;
+    width: 236px;
+    height: 236px;
+    border-radius: 5px;
+    border: 1px solid #D2D2D2;
+    background: #EAEAEA;
+}
+
+.formulaire, .listeProduits {
+    border-radius: 20px;
+    border: 1px solid #D6D6D6;
+    background: rgba(255, 255, 255, 0.48);
+    backdrop-filter: blur(5.800000190734863px);
+    padding: 50px 20px 20px 20px;
+}
+
+.listeProduits {
+    width: 78%;
+    height: 86vh;
+}
+.listeProduits div{
+    overflow-y: auto;
+}
+.page {
+    display: flex;
+    margin-top: 6%;
+    width: 95%;
+
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+height: 95%;
+
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #6A6A6A;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #3f3f3f;
+}
+.inputSearch {
+    font-size: 1.5em;
+    padding: 0.5em
+
+}
+
+.listeProduits form {
+    position: relative;
+    border-radius: 10px;
+    width: 80%;
+    border: 2px solid #E1E1E1;
+    background: #F9F9F9;
+}
+
+.bi-search {
+    content: "\f52a";
     position: absolute;
-    right: 2%;
-    top: 13%;
+    left: 1.5%;
+    font-size: 1.5em;
+    top: 22.5%;
+}
+
+.card-body h5 {
+    color: #292E2C;
+
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.card-body p {
+    color: #494848;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.imageProduit {
+    border-radius: 5px;
+    background: #EAEAEA;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
+.card-img-top {
+    width: 95%;
+    height: 95%;
+}
+
+.card {
+    width: 304px;
+    margin: 9px;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid #D0D0D0;
+    background: #FFF;
+    box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+}
+
+.productCreateButton, .productDeleteButton, .productEditButton {
+    border-radius: 10px;
+    border: 2px solid #149421;
+    color: #149421;
+    background: #F3FFEF;
+    font-size: 1.2em;
+    padding: 5px 37px;
+}
+.productDeleteButton{
+color: #FF0000 !important;
+    border: 2px solid #FF0000 !important;
+}
+.productChangeStatut {
+    background-color: #226D68;
+}
+
+.productChangeStatut1 {
+    background-color: #F1E1A7;
+}
+
+.card-body div a {
+    color: #292E2C;
+    font-size: 1.1em;
+}
+
+.cardOptions {
+    width: 100%;
+    align-items: center;
+}
+
+/*================FORMULAIRE====================*/
+.titleForm {
+    color: #292E2C;
+
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.formulaire {
+    display: flex;
+    flex-direction: column;
+}
+
+.b3 label {
+    color: #292E2C;
+
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.mb-3 {
+    width: 100%;
+}
+
+.mb3 input, .mb-3 textarea {
+    border-radius: 10px;
+    border: 2px solid #E1E1E1;
+    background: #F9F9F9;
+    width: 100%;
 }
