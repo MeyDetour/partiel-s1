@@ -1,0 +1,12 @@
+:root {
+    --timide: #d6955b;
+    --joyeux: #feeaa1;
+    --simplet: #226d68;
+    --prof: #18534f;
+    --atchoum: #ecf8f6;
+    --dash: #392e2c;
+}
+
+.contenu {
+    color: var(--simplet)
+}
