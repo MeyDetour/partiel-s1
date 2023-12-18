@@ -23,7 +23,7 @@ body {
 
     height: 100%;
     margin: 0;
-overflow: hidden;
+    overflow: hidden;
     background-color: #EACCD8;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -37,9 +37,13 @@ overflow: hidden;
     justify-content: center;
     align-items: center;
     position: relative;
+    width: 100vw;
+
 
 }
 
+
+/*================NAVBAR ====================*/
 .navbar {
     position: absolute;
     top: 0%;
@@ -47,13 +51,14 @@ overflow: hidden;
     width: 100vw;
     padding: 20px 50px;
 }
-.navbar-nav{
+
+.navbar-nav {
     font-size: 1.5em;
 }
+
 .navbarSupportedContent {
     position: relative;
 }
-
 
 .inputPDP {
     display: none;
@@ -66,30 +71,32 @@ overflow: hidden;
 }
 
 
-.createImagePreview {
-    margin: 2em;
-    width: 236px;
-    height: 236px;
-    border-radius: 5px;
-    border: 1px solid #D2D2D2;
-    background: #EAEAEA;
-}
-
+/*================PRODUCTS CONTAINER ====================*/
 .formulaire, .listeProduits {
     border-radius: 20px;
+    height: 86vh;
     border: 1px solid #D6D6D6;
     background: rgba(255, 255, 255, 0.48);
     backdrop-filter: blur(5.800000190734863px);
     padding: 50px 20px 20px 20px;
 }
 
+.listeProduits form {
+    position: relative;
+    border-radius: 10px;
+    width: 80%;
+    border: 2px solid #E1E1E1;
+    background: #F9F9F9;
+}
+
 .listeProduits {
     width: 78%;
-    height: 86vh;
 }
-.listeProduits div{
+
+.listeProduits div {
     overflow-y: auto;
 }
+
 .page {
     display: flex;
     margin-top: 6%;
@@ -99,10 +106,11 @@ overflow: hidden;
     align-items: flex-start;
     justify-content: space-around;
 }
+
 /* width */
 ::-webkit-scrollbar {
     width: 8px;
-height: 95%;
+    height: 95%;
 
 }
 
@@ -122,18 +130,11 @@ height: 95%;
 ::-webkit-scrollbar-thumb:hover {
     background: #3f3f3f;
 }
+
 .inputSearch {
     font-size: 1.5em;
     padding: 0.5em
 
-}
-
-.listeProduits form {
-    position: relative;
-    border-radius: 10px;
-    width: 80%;
-    border: 2px solid #E1E1E1;
-    background: #F9F9F9;
 }
 
 .bi-search {
@@ -142,6 +143,28 @@ height: 95%;
     left: 1.5%;
     font-size: 1.5em;
     top: 22.5%;
+}
+
+/*================CARD====================*/
+.card {
+    width: 304px;
+    margin: 9px;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid #D0D0D0;
+    background: #FFF;
+    box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+}
+
+.card-img-top {
+    width: 95%;
+    height: 95%;
+}
+
+.card-body div a {
+    color: #292E2C;
+    font-size: 1.1em;
 }
 
 .card-body h5 {
@@ -161,40 +184,6 @@ height: 95%;
     line-height: normal;
 }
 
-.imageProduit {
-    border-radius: 5px;
-    background: #EAEAEA;
-    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
-}
-
-.card-img-top {
-    width: 95%;
-    height: 95%;
-}
-
-.card {
-    width: 304px;
-    margin: 9px;
-    overflow: hidden;
-    border-radius: 10px;
-    border: 1px solid #D0D0D0;
-    background: #FFF;
-    box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.25);
-
-}
-
-.productCreateButton, .productDeleteButton, .productEditButton {
-    border-radius: 10px;
-    border: 2px solid #149421;
-    color: #149421;
-    background: #F3FFEF;
-    font-size: 1.2em;
-    padding: 5px 37px;
-}
-.productDeleteButton{
-color: #FF0000 !important;
-    border: 2px solid #FF0000 !important;
-}
 .productChangeStatut {
     background-color: #226D68;
 }
@@ -203,15 +192,17 @@ color: #FF0000 !important;
     background-color: #F1E1A7;
 }
 
-.card-body div a {
-    color: #292E2C;
-    font-size: 1.1em;
-}
-
 .cardOptions {
     width: 100%;
     align-items: center;
 }
+
+.imageProduit {
+    border-radius: 5px;
+    background: #EAEAEA;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
 
 /*================FORMULAIRE====================*/
 .titleForm {
@@ -223,9 +214,19 @@ color: #FF0000 !important;
     line-height: normal;
 }
 
+.createImagePreview {
+    margin: 2em;
+    width: 236px;
+    height: 236px;
+    border-radius: 5px;
+    border: 1px solid #D2D2D2;
+    background: #EAEAEA;
+}
+
 .formulaire {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .b3 label {
@@ -241,9 +242,59 @@ color: #FF0000 !important;
     width: 100%;
 }
 
+.productCreateButton, .productDeleteButton, .productEditButton {
+    border-radius: 10px;
+    border: 2px solid #149421;
+    color: #149421;
+    background: #F3FFEF;
+    font-size: 1.2em;
+    padding: 5px 37px;
+}
+
+.productDeleteButton {
+    color: #FF0000 !important;
+    border: 2px solid #FF0000 !important;
+}
+
 .mb3 input, .mb-3 textarea {
     border-radius: 10px;
     border: 2px solid #E1E1E1;
     background: #F9F9F9;
     width: 100%;
+}
+
+
+@media only screen and (max-width: 1080px) {
+    .page {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .listeProduits {
+        width: 100%;
+    }
+
+    .page {
+        margin-top: 200px;
+    }
+.container-fluid{
+
+    flex-direction: column !important;
+    align-items: center;
+}
+    .navbar{
+        box-shadow: grey 10px 0px 10px 10px;
+    }
+    .navbar-brand {
+        font-size: 1.5em !important;
+        font-weight: 700;
+    }
+
+    .navbar-nav {
+        flex-direction: row;
+    }
+
+    body {
+        overflow-y: auto;
+    }
 }

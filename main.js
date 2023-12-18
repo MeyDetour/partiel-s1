@@ -31,7 +31,7 @@ function render(contenu) {
 
 function renderLoginform() {
     let form = `
-   <div class="d-flex flex-column align-items-center">
+   <div class="d-flex flex-column align-items-center mt-5">
    
 
         <div class="mb-3">
@@ -55,7 +55,7 @@ function renderLoginform() {
 
 function renderSignupform() {
     let form = `
-     <div class="d-flex flex-column align-items-center">
+     <div class="d-flex flex-column align-items-center mt-5">
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Email address</label>
             <input type="text" name="signupUsername" class="form-control" id="signupUsername" placeholder="Create your username..">
@@ -89,7 +89,7 @@ function renderProducts() {
 
         contenu = `
         <nav class="navbar navbar-expand-lg ">
-            <div class="container-fluid w-100 d-flex flex-row justify-content-between">
+            <div class="container-fluid w-100 d-flex flex-row  justify-content-between align-items-center">
                 <a class="navbar-brand fs-2" href="#">${user.username}'s shooping cards <i class="bi bi-cart4"></i></a>
                
                 <div class="" id="navbarSupportedContent">
@@ -116,7 +116,7 @@ function renderProducts() {
          <div class="formulaire">
                <span class="titleForm">Add / Modify item</span>
                  <div class="d-flex flex-column align-items-center justify-content-around">
-                         <img src="" alt="" class="createImagePreview">
+                         <img src="image/defaultPorduct.png" alt="" class="createImagePreview">
                  <div class=" d-flex flex-column align-items-start">
                                          <div class="mb-3">
                                             <label for="exampleFormControlInput1" class="form-label">Name</label>
@@ -128,7 +128,7 @@ function renderProducts() {
                                         </div>
                                             <div class="mb-3">
                                             <label for="exampleFormControlTextarea1" class="form-label">Image du produit</label>
-                                            <input type="file" clas="form-control" onchange="preview(this)" name="productImg" class="form-control" id="productImg"  >
+                                            <input type="file" accept="image/jpeg, image/png, image/jpg" clas="form-control" onchange="preview(this)" name="productImg" class="form-control" id="productImg"  >
                                         </div>
                                 <span class="text-danger createError"></span>     
                                 <div class="d-flex flex-row">
@@ -178,7 +178,6 @@ function renderProducts() {
 
 
 }
-
 
 function renderProduct(product) {
 let statut = `
